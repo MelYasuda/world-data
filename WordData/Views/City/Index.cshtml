@@ -1,6 +1,13 @@
 <ul>
+
+  <form action="/cities/population" method="post">
+    <label for="number">Filter by population: Use > , < , >=, or <= followed by a number</label>
+    <input id="number" name="number" type="text">
+    <br><button type="submit">Go!</button>
+  </form>
+
 @foreach(var x in Model)
 {
-  <li>@x.GetName()</li>
+  <li>@x.GetId() @x.GetName() @x.GetPopulation()</li>
 }
 </ul>
