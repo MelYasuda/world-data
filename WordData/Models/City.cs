@@ -57,13 +57,13 @@ namespace WordData.Models
       return allCities;
     }
 
-    public static List<City> GetByPopulation()
+    public static List<City> GetByPopulation(string Population)
     {
       List<City> allByPopulation = new List<City> {};
       MySqlConnection conn = DB.Connection();
       conn.Open();
       MySqlCommand cmd = conn.CreateCommand() as MySqlCommand;
-      cmd.CommandText = @"SELECT * FROM city WHERE population <= " + _population + ";";
+      cmd.CommandText = @"SELECT * FROM city WHERE population <= " + Population + ";";
       MySqlDataReader rdr = cmd.ExecuteReader() as MySqlDataReader;
       while(rdr.Read())
       {

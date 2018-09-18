@@ -16,9 +16,7 @@ namespace WordData.Controllers
     [HttpPost("/cities/population")]
     public ActionResult ByPopulation()
     {
-      City userinput = new City(Request.Form["number"]);
-      userinput.GetByPopulation();
-      List<City> allByPopulation = City.GetByPopulation();
+      List<City> allByPopulation = City.GetByPopulation(Request.Form["number"]);
       return View("Index",allByPopulation);
     }
   }
